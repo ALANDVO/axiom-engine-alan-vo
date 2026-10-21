@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "name": "axiom-engine-alan-vo",
+  "owner": "ALANDVO",
+  "email": "alanvo@gmail.com",
+  "domain": "AI/ML developer tools",
+  "summary": "Work in progress: axiom-engine-alan-vo",
+  "workflows": [
+    "Chat completion with intelligent model routing via unified /v1 endpoint",
+    "Model discovery and capability inspection with proactive probe labels",
+    "API key management with automatic orphaned model cleanup"
+  ],
+  "auth": "oidc-keycloak-saml-broker",
+  "llm_providers": [
+    "openai-compatible",
+    "anthropic",
+    "gemini",
+    "ollama"
+  ],
+  "status": "work-in-progress"
+}

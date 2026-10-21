@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "current_feature": "skeleton",
+  "features": [
+    {
+      "id": "skeleton",
+      "title": "FastAPI/React skeleton with one working workflow",
+      "status": "done",
+      "acceptance": [
+        "Backend starts and serves health endpoint",
+        "Frontend builds and loads",
+        "One end-to-end chat completion workflow works"
+      ],
+      "implementation": [
+        "backend/app/main.py",
+        "backend/app/api/chat.py",
+        "backend/app/api/models.py",
+        "backend/app/api/health.py",
+        "backend/app/core/config.py",
+        "backend/app/core/database.py",
+        "backend/app/models/__init__.py",
+        "frontend/src/App.tsx",
+        "frontend/src/components/Chat.tsx",
+        "frontend/src/api/client.ts",
+        "frontend/src/types/api.ts"
+      ],
+      "tests": [
+        "backend/tests/test_health.py",
+        "frontend/src/components/Chat.test.tsx"
+      ]
+    },
+    {
+      "id": "jev-routing",
+      "title": "JEV-based intelligent model selection & routing",
+      "status": "planned",
+      "acceptance": [
+        "Task analysis endpoint classifies request type/complexity",
+        "Model selector picks best model based on capabilities",
+        "Routing integrates with existing fallback chain"
+      ],
+      "implementation": [
+        "backend/app/services/jev_analyzer.py",
+        "backend/app/services/model_selector.py",
+        "backend/app/api/jev.py"
+      ],
+      "tests": [
+        "backend/tests/test_jev_analyzer.py",
+        "backend/tests/test_model_selector.py"
+      ]
+    },
+    {
+      "id": "model-probing",
+      "title": "Proactive per-model probing with capability labels",
+      "status": "planned",
+      "acceptance": [
+        "Scheduler runs periodic probes per (platform, model, key)",
+        "Labels: tool_capable, chat_only, unavailable, unknown",
+        "Labels exposed via API and dashboard"
+      ],
+      "implementation": [
+        "backend/app/services/probe_scheduler.py",
+        "backend/app/services/model_prober.py",
+        "backend/app/api/models.py"
+      ],
+      "tests": [
+        "backend/tests/test_probe_scheduler.py",
+        "backend/tests/test_model_prober.py"
+      ]
+    },
+    {
+      "id": "cross-key-concurrency",
+      "title": "Cross-key concurrency and hedged requests",
+      "status": "planned",
+      "acceptance": [
+        "Per-key concurrency budgets stack independently",
+        "Optional hedged racing with hedge_after_ms",
+        "Failure attribution: 429/timeout -> provider, 404 -> model"
+      ],
+      "implementation": [
+        "backend/app/services/concurrency_manager.py",
+        "backend/app/services/hedged_router.py",
+        "backend/app/services/failure_classifier.py"
+      ],
+      "tests": [
+        "backend/tests/test_concurrency_manager.py",
+        "backend/tests/test_hedged_router.py",
+        "backend/tests/test_failure_classifier.py"
+      ]
+    },
+    {
+      "id": "key-deletion-cleanup",
+      "title": "Key deletion cleans up orphaned models",
+      "status": "planned",
+      "acceptance": [
+        "Deleting a key disables its exclusive models",
+        "Catalog prune sweeps models pointing to deleted keys",
+        "Dashboard reflects cleanup immediately"
+      ],
+      "implementation": [
+        "backend/app/services/key_lifecycle.py",
+        "backend/app/api/keys.py"
+      ],
+      "tests": [
+        "backend/tests/test_key_lifecycle.py"
+      ]
+    }
+  ]
+}
