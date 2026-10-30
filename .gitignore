@@ -44,3 +44,4 @@ Thumbs.db
 .coverage
 htmlcov/
 .nyc_output/
+venv/
