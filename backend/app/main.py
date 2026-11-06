@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 from app.core.config import get_settings
 from app.core.database import init_db
-from app.api import health, chat, models
+from app.api import health, chat, models, jev
 
 settings = get_settings()
 

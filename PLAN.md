@@ -4,7 +4,7 @@ Each round completes one feature or repair. Future items are planned, not implem
 
 ## Current round
 
-skeleton
+jev-routing
 
 ## Roadmap
 
@@ -23,7 +23,7 @@ Tests: `backend/tests/test_health.py`, `frontend/src/components/Chat.test.tsx`
 
 ### jev-routing — JEV-based intelligent model selection & routing
 
-Status: planned
+Status: done
 
 Acceptance:
 - Task analysis endpoint classifies request type/complexity

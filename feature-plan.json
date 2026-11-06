@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "current_feature": "skeleton",
+"current_feature": "jev-routing",
   "features": [
     {
       "id": "skeleton",
@@ -32,7 +32,7 @@
     {
       "id": "jev-routing",
       "title": "JEV-based intelligent model selection & routing",
-      "status": "planned",
+"status": "done",
       "acceptance": [
         "Task analysis endpoint classifies request type/complexity",
         "Model selector picks best model based on capabilities",
