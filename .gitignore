@@ -45,3 +45,11 @@ Thumbs.db
 htmlcov/
 .nyc_output/
 venv/
+.turbo/
+**/data/media/
+*.db-wal
+*.db-shm
+*.sqlite-wal
+*.sqlite-shm
+*.sqlite3-wal
+*.sqlite3-shm

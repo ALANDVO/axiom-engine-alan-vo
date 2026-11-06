@@ -5,7 +5,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, func
 from app.core.database import get_db
 from app.models import Model, RequestLog, ApiKey
-from datetime import datetime, timezone
+from app.services.model_selector import select_model_jev
 import uuid
 import time
 import httpx
@@ -91,7 +91,9 @@ async def chat_completions(
     requires_tools = bool(request.tools)
 
     # Resolve model
-    model = await select_model_round_robin(db, request.model, requires_tools)
+    # Resolve model using JEV-based selection
+    messages_list = [msg.model_dump(exclude_none=True) for msg in request.messages]
+    model = await select_model_jev(db, request.model, requires_tools, messages_list)
     if not model:
         raise HTTPException(status_code=404, detail=f"No enabled model found for {request.model}")
 
@@ -128,7 +130,7 @@ async def chat_completions(
             input_tokens=upstream_response.get("usage", {}).get("prompt_tokens"),
             output_tokens=upstream_response.get("usage", {}).get("completion_tokens"),
             total_tokens=upstream_response.get("usage", {}).get("total_tokens"),
-            routing_strategy="round_robin",
+            routing_strategy="jev",
         )
         db.add(log_entry)
         await db.commit()
@@ -165,7 +167,7 @@ async def chat_completions(
             error_code=str(e.response.status_code),
             error_message=error_detail,
             latency_ms=latency_ms,
-            routing_strategy="round_robin",
+            routing_strategy="jev",
             failure_attribution="provider" if e.response.status_code in (429, 502, 503, 504) else "model",
         )
         db.add(log_entry)
@@ -182,7 +184,7 @@ async def chat_completions(
             status="error",
             error_message=str(e),
             latency_ms=latency_ms,
-            routing_strategy="round_robin",
+            routing_strategy="jev",
             failure_attribution="network",
         )
         db.add(log_entry)
