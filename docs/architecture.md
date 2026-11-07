@@ -78,3 +78,7 @@ docker compose exec backend sqlite3 /app/data/axiom.db .dump > backup.sql
 # Restore
 docker compose exec -i backend sqlite3 /app/data/axiom.db < backup.sql
 ```
+
+---
+
+Alan Vo · [alanvo.net](https://alanvo.net)

@@ -73,3 +73,6 @@ Implementation: `backend/app/services/key_lifecycle.py`, `backend/app/api/keys.p
 
 Tests: `backend/tests/test_key_lifecycle.py`
 
+---
+
+Alan Vo · [alanvo.net](https://alanvo.net)

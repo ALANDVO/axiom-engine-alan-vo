@@ -59,3 +59,7 @@ Partial code published for continued development. Known issues: STATUS.md.
 </arg_key>
 <arg_key=i>
 <arg_value>Update changelog with checkpoint
+
+---
+
+Alan Vo · [alanvo.net](https://alanvo.net)

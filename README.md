@@ -147,3 +147,7 @@ Keycloak realm import provided in `docs/keycloak-realm.json`. Configure identity
 ## License
 
 MIT License — Copyright (c) 2025 Alan Vo <alanvo@gmail.com>
+
+---
+
+Alan Vo · [alanvo.net](https://alanvo.net)
