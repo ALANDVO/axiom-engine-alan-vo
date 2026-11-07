@@ -75,4 +75,4 @@ Tests: `backend/tests/test_key_lifecycle.py`
 
 ---
 
-Alan Vo · [alanvo.net](https://alanvo.net)
+Alan Vo · [alanvo.net](https://alanvo.net) · [X: @alanvoasi](https://x.com/alanvoasi)
