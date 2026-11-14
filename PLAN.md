@@ -36,7 +36,7 @@ Tests: `backend/tests/test_jev_analyzer.py`, `backend/tests/test_model_selector.
 
 ### model-probing — Proactive per-model probing with capability labels
 
-Status: planned
+Status: in_progress
 
 Acceptance:
 - Scheduler runs periodic probes per (platform, model, key)
