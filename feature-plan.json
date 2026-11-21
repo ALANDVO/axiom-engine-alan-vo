@@ -51,7 +51,7 @@
     {
       "id": "model-probing",
       "title": "Proactive per-model probing with capability labels",
-      "status": "in_progress",
+      "status": "done",
       "acceptance": [
         "Scheduler runs periodic probes per (platform, model, key)",
         "Labels: tool_capable, chat_only, unavailable, unknown",
